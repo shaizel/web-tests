@@ -12,7 +12,7 @@
 
 	div {
 		padding: 5px;
-		font-size: 50px;
+		font-size: 30px;
 		display: none;
 	}
 
@@ -25,12 +25,22 @@
 		background-color: green;
 	}
 	
+	#mobile-horizontal {
+		display: none;
+		background-color: cyan;
+	}
+	
+	#mobile-vertical {
+		display: none;
+		background-color: pink;
+	} 
+	
 	#mobile-keyboard {
 		display: none;
 		background-color: yellow;
 	} 
 
-	@media (max-device-height: 899px) {	
+	@media (max-device-height: 899px) {
 		#desktop {
 			display: none;
 		} 
@@ -40,27 +50,36 @@
 		}
 	}
 
-	@media (max-device-aspect-ratio: 1/1), @media (max-device-aspect-ratio: 1) {	
-		// Mobile in portrait mode
-	}
-
-	@media (min-device-aspect-ratio: 1/1), @media (min-device-aspect-ratio: 1) {	
-		// Mobile in landscape mode
-	}
-
-
-	// Mobile in portrait mode
 	@media (max-device-height: 899px) and (max-device-aspect-ratio: 1/1) and (max-height: 500px),
-	@media (max-device-height: 899px) and (max-device-aspect-ratio: 1) and (max-height: 500px){	
+	(max-device-width: 899px) and (min-device-aspect-ratio: 1/1) and (max-height: 200px) {
 		#mobile-keyboard {
 			display: block;
+		} 
+	}
+	
+	@media (max-device-width: 899px) and (min-device-aspect-ratio: 1/1),
+	(max-device-width: 899px) and (min-device-aspect-ratio: 1){
+		#mobile-horizontal {
+			display: inline-block;
+		} 
+	}
+	
+	@media (max-device-height: 899px) and (max-device-aspect-ratio: 1/1),
+	(max-device-height: 899px) and (max-device-aspect-ratio: 1)	{
+		#mobile-vertical {
+			display: inline-block;
 		} 
 	}
 </style>
 </head>
 <body>
 	<div id="desktop">DESKTOP</div>
-	<div id="mobile">MOBILE</div>
+	<div id="mobile">
+		MOBILE - 
+		<span id="mobile-horizontal">Horizontal</span>
+		<span id="mobile-vertical">Vertical</span>
+	</div>
+	<label for="input">Input: <input id="input"></input></label>
 	<div id="mobile-keyboard">Keyboard open</div>
 </body>
 </html>
