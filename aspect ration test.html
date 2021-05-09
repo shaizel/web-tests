@@ -3,64 +3,70 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-	body {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+body {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+div {
+	padding: 5px;
+	font-size: 200px;
+	display: none;
+}
+
+	#desktop {
+		display: block;
+		background-color: blue;
+	} 
+	
+	#mobile {
+		background-color: green;
 	}
 
-	div {
-		padding: 5px;
-		font-size: 16px;
+@media (max-device-height: 899px) {	
+	#desktop {
 		display: none;
-	}
+	} 
 	
-	#height, #width {
+	#mobile {
 		display: block;
 	}
-	
-	.desktop {
-		display: block;
-	}
-	
-	@media (max-device-height: 899px) {
-		.mobile {
-			display: block;
-		}
-		
-		.desktop {
-			display: none;
-		}
-	}
+}
 
-	@media (max-device-aspect-ratio: 10/10) {
-		.vertical {
-			display: block;
-		}
-	}
-	
-	@media (min-device-aspect-ratio: 1/1) {
-		.horizontal {
-			display: block;
-		}
-	}
 </style>
 </head>
 <body>
-	<div class='mobile'>Mobile</div>
-	<div class='desktop'>Desktop</div>
+	<div id="desktop">DESKTOP</div>
+	<div id="mobile">MOBILE</div>
 	
-	<div class='vertical'>Vertical</div>
-	<div class='horizontal'>Horizontal</div>
+	<div id="orientation">Orientation</div>
 	
 	<div id="height"></div>
 	<div id="width"></div>
-	<script>
+	
+	<style>
+		var mobileClass = screen.height < 900;
+		
+		document.getElementById("body").className = "mystyle";
+		
+		if (window.DeviceOrientationEvent) {
+			window.addEventListener("deviceorientation", function(event) {
+				// alpha: rotation around z-axis
+				var rotateDegrees = event.alpha;
+				// gamma: left to right
+				var leftToRight = event.gamma;
+
+				document.getElementById("orientation").innerHTML = rotateDegrees + ", " + gamma;
+			}, true);
+		}
+		
 		setTimeout(() => {
 			document.getElementById("height").innerHTML = screen.height;
 			document.getElementById("width").innerHTML = screen.width;
 		}, 2000);
-	</script>
+	</style>
 </body>
 </html>
+
