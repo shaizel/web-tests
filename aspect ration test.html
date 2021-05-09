@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	div {
+		padding: 5px;
+		font-size: 16px;
+		display: none;
+	}
+	
+	.desktop {
+		display: block;
+	}
+	
+	@media (max-device-height: 899px) {
+		.mobile {
+			display: block;
+		}
+		
+		.desktop {
+			display: none;
+		}
+	}
+
+	@media (max-device-aspect-ratio: 1/1) {
+		.vertical {
+			display: block;
+		}
+	}
+	
+	@media (min-device-aspect-ratio: 1/1) {
+		.horizontal {
+			display: block;
+		}
+	}
+</style>
+</head>
+<body>
+	<div class='mobile'>Mobile</div>
+	<div class='desktop'>Desktop</div>
+	
+	<div class='vertical'>Vertical</div>
+	<div class='horizontal'>Horizontal</div>
+</body>
+</html>
