@@ -54,9 +54,13 @@
 	<div class='vertical'>Vertical</div>
 	<div class='horizontal'>Horizontal</div>
 	
-	<div id="replace"></div>
+	<div id="height"></div>
+	<div id="width"></div>
 	<script>
-		setTimeout(() => document.getElementById("replace").innerHTML = screen.height, 2000);
+		setTimeout(() => {
+			document.getElementById("height").innerHTML = screen.height;
+			document.getElementById("width").innerHTML = screen.width;
+		}, 2000);
 	</script>
 </body>
 </html>
