@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	div {
+		padding: 5px;
+		font-size: 20px;
+		display: none;
+	}
+	
+	#height, #width {
+		display: block;
+	}
+
+	#desktop {
+		display: block;
+		background-color: blue;
+		color: white;
+	} 
+	
+	#mobile {
+		background-color: green;
+		color: white;
+	}
+
+	@media (max-device-height: 899px) {	
+		#desktop {
+			display: none;
+		} 
+
+		#mobile {
+			display: block;
+		}
+	}
+
+</style>
+</head>
+<body>
+	<div id="desktop">DESKTOP</div>
+	<div id="mobile">MOBILE</div>
+	
+	<div id="orientation">Orientation</div>
+	
+	<div id="height"></div>
+	<div id="width"></div>
+	
+	<script>
+		//var mobileClass = screen.height < 900;
+		
+		//document.getElementByTagName("body").className = "mystyle";
+		
+		if (window.DeviceOrientationEvent) {
+			window.addEventListener("deviceorientation", function(event) {
+				// alpha: rotation around z-axis
+				var rotateDegrees = event.alpha;
+				// gamma: left to right
+				var leftToRight = event.gamma;
+
+				document.getElementById("orientation").innerHTML = rotateDegrees + ", " + gamma;
+			}, true);
+		}
+		
+		setTimeout(() => {
+			document.getElementById("height").innerHTML = screen.height;
+			document.getElementById("width").innerHTML = screen.width;
+		}, 2000);
+	</script>
+</body>
+</html>
