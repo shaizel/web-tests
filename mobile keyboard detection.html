@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	div {
+		padding: 5px;
+		font-size: 50px;
+		display: none;
+	}
+
+	#desktop {
+		display: block;
+		background-color: blue;
+	} 
+	
+	#mobile {
+		background-color: green;
+	}
+	
+	#mobile-keyboard {
+		display: none;
+		background-color: yellow;
+	} 
+
+	@media (max-device-height: 899px) {	
+		#desktop {
+			display: none;
+		} 
+		
+		#mobile {
+			display: block;
+		}
+	}
+
+	@media (max-device-aspect-ratio: 1/1) {	
+		// Mobile in portrait mode
+	}
+
+	@media (min-device-aspect-ratio: 1/1) {	
+		// Mobile in landscape mode
+	}
+
+
+	// Mobile in portrait mode
+	@media (max-device-height: 899px) and (max-device-aspect-ratio: 1/1) and (max-height: 500px) {	
+		#mobile-keyboard {
+			display: block;
+		} 
+	}
+</style>
+</head>
+<body>
+	<div id="desktop">DESKTOP</div>
+	<div id="mobile">MOBILE</div>
+	<div id="mobile-keyboard">Keyboard open</div>
+</body>
+</html>
