@@ -40,7 +40,7 @@
 		background-color: yellow;
 	} 
 
-	@media (max-device-height: 899px) {
+	@media (max-height: 899px) {
 		#desktop {
 			display: none;
 		} 
@@ -50,22 +50,22 @@
 		}
 	}
 
-	@media (max-device-height: 899px) and (max-device-aspect-ratio: 1/1) and (max-height: 500px),
-	(max-device-width: 899px) and (min-device-aspect-ratio: 1/1) and (max-height: 200px) {
+	@media (max-height: 899px) and (max-aspect-ratio: 1/1) and (max-height: 500px),
+	(max-width: 899px) and (min-aspect-ratio: 1/1) and (max-height: 200px) {
 		#mobile-keyboard {
 			display: block;
 		} 
 	}
 	
-	@media (max-device-width: 899px) and (min-device-aspect-ratio: 1/1),
-	(max-device-width: 899px) and (min-device-aspect-ratio: 1){
+	@media (max-width: 899px) and (min-aspect-ratio: 1/1),
+	(max-width: 899px) and (min-aspect-ratio: 1){
 		#mobile-horizontal {
 			display: inline-block;
 		} 
 	}
 	
-	@media (max-device-height: 899px) and (max-device-aspect-ratio: 1/1),
-	(max-device-height: 899px) and (max-device-aspect-ratio: 1)	{
+	@media (max-height: 899px) and (max-aspect-ratio: 1/1),
+	(max-height: 899px) and (max-aspect-ratio: 1)	{
 		#mobile-vertical {
 			display: inline-block;
 		} 
